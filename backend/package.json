@@ -1,0 +1,42 @@
+{
+  "name": "web_project_around_express",
+  "version": "1.0.0",
+  "description": "Backend server for Around the U.S. project",
+  "keywords": [
+    "express",
+    "nodejs",
+    "backend",
+    "api",
+    "rest",
+    "server",
+    "web-development"
+  ],
+  "homepage": "https://github.com/yaelramirez11/web_project_around_express#readme",
+  "bugs": {
+    "url": "https://github.com/yaelramirez11/web_project_around_express/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yaelramirez11/web_project_around_express.git"
+  },
+  "license": "ISC",
+  "author": "Yael Ramírez",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint .",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.32.0",
+    "nodemon": "^3.1.11"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.2.2"
+  }
+}
