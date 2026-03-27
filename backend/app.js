@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
+const { login, createUser } = require("./controllers/users");
 const usersRouter = require("./routes/users");
+const auth = require("./middlewares/auth");
 const cardsRouter = require("./routes/cards");
 const { PORT = 3000 } = process.env;
 const mongoose = require("mongoose");
@@ -34,15 +36,14 @@ app.use((req, res, next) => {
   next();
 });
 
-// MIDDLEWARE TEMPORAL DE USUARIO
-app.use((req, res, next) => {
-  req.user = {
-    _id: "699e320d22afa209b211e08d",
-  };
-  next();
-});
+// Rutas públicas
+app.post("/signin", login);
+app.post("/signup", createUser);
 
-// Rutas
+// Protección global
+app.use(auth);
+
+// Rutas protegidas
 app.use("/users", usersRouter);
 app.use("/cards", cardsRouter);
 
