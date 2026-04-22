@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const auth = require("../middlewares/auth");
 const {
   getCards,
   createCards,
@@ -9,17 +10,17 @@ const {
 } = require("../controllers/cards");
 
 // GET /cards
-router.get("/", getCards);
+router.get("/", auth, getCards);
 
 // POST /cards
-router.post("/", createCards);
+router.post("/", auth, createCards);
 
 // DELETE /cards/:cardId
-router.delete("/:cardId", deleteCards);
+router.delete("/:cardId", auth, deleteCards);
 
 // NUEVAS rutas para likes
-router.put("/:cardId/likes", likeCard); // Dar like
-router.delete("/:cardId/likes", dislikeCard); // Quitar like
+router.put("/:cardId/likes", auth, likeCard); // Dar like
+router.delete("/:cardId/likes", auth, dislikeCard); // Quitar like
 
 // Exportamos el router para usarlo en app.js
 module.exports = router;

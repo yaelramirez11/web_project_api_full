@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const auth = require("../middlewares/auth");
 
 const {
   getUsers,
@@ -10,15 +11,15 @@ const {
 } = require("../controllers/users");
 
 // GET /users
-router.get("/", getUsers);
+router.get("/", auth, getUsers);
 
-router.get("/me", getCurrentUser);
+router.get("/me", auth, getCurrentUser);
 
 // GET /users/:userId
-router.get("/:userId", getUserById);
+router.get("/:userId", auth, getUserById);
 
 // NUEVAS rutas para actualizar perfil y avatar
-router.patch("/me", updateProfile); // Actualizar perfil
-router.patch("/me/avatar", updateAvatar); // Actualizar avatar
+router.patch("/me", auth, updateProfile); // Actualizar perfil
+router.patch("/me/avatar", auth, updateAvatar); // Actualizar avatar
 
 module.exports = router;

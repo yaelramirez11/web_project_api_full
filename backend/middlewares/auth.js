@@ -5,7 +5,7 @@ const auth = (req, res, next) => {
 
   // 1. Verificar que exista el token
   if (!token || !token.startsWith("Bearer ")) {
-    return res.status(403).send({
+    return res.status(401).send({
       message: "Acceso prohibido",
     });
   }
@@ -22,7 +22,7 @@ const auth = (req, res, next) => {
     // 5. Continuar
     next();
   } catch (err) {
-    return res.status(403).send({
+    return res.status(401).send({
       message: "Acceso prohibido",
     });
   }

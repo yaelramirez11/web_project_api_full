@@ -32,11 +32,22 @@ const deleteCards = (req, res) => {
   // Paso 1: Obtener el cardId de los parámetros de la URL (req.params)
   const { cardId } = req.params;
   // Paso 2: Usar un método de Mongoose para eliminar por ID, orFail() en deleteCards asegura que si la card no existe, entra al .catch() con statusCode = 404.
-  Card.findByIdAndDelete(cardId)
+  Card.findById(cardId)
     .orFail(() => {
       const error = new Error("Tarjeta no encontrada");
       error.statusCode = 404;
       throw error;
+    })
+    // Verificar que el usuario sea el propietario
+    .then((card) => {
+      // Aquí se verifica si el usuario es el propietario
+      if (card.owner.toString() !== req.user._id) {
+        return res
+          .status(403)
+          .json({ message: "No tienes permisos para eliminar esta tarjeta" });
+      }
+      // Solo si es el propietario, procedes a eliminar
+      return Card.findByIdAndDelete(cardId);
     })
     .then(() => res.json({ message: "Tarjeta eliminada correctamente" }))
     .catch((err) => {
