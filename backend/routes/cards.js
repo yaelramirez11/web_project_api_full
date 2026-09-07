@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const auth = require("../middlewares/auth");
+
 const {
   getCards,
   createCards,
@@ -9,20 +10,21 @@ const {
   dislikeCard,
 } = require("../controllers/cards");
 
+const {
+  validateCard, validateCardId
+} = require("../middlewares/validators");
+
 // GET /cards
 router.get("/", auth, getCards);
 
-// POST /cards
-router.post("/", auth, createCards);
+// POST /cards (VALIDADO)
+router.post("/", auth, validateCard, createCards);
 
 // DELETE /cards/:cardId
-router.delete("/:cardId", auth, deleteCards);
+router.delete("/:cardId", auth, validateCardId, deleteCards);
 
-// NUEVAS rutas para likes
-router.put("/:cardId/likes", auth, likeCard); // Dar like
-router.delete("/:cardId/likes", auth, dislikeCard); // Quitar like
+// LIKES
+router.put("/:cardId/likes", auth, validateCardId, likeCard);
+router.delete("/:cardId/likes", auth, validateCardId, dislikeCard);
 
-// Exportamos el router para usarlo en app.js
 module.exports = router;
-
-//routes → controllers → models → MongoDB. Ya no se usan archivos JSON. Ahora todo vive en la base de datos aroundb.

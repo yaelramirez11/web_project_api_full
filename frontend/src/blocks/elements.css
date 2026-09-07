@@ -1,0 +1,153 @@
+.cards-container {
+  display: grid;
+  color: #000000;
+  margin-top: 70px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  width: 890px;
+}
+
+.element {
+  height: 361px;
+  width: 282px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.element__rectangle {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.element__image {
+  width: 282px;
+  height: 282px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.element__info {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 79px;
+}
+
+.element__text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-left: 20px;
+  width: auto;
+  height: 79px;
+  margin: 0;
+  font-family: "Inter-black";
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29.05px;
+}
+
+.element__button {
+  width: 21px;
+  height: 19px;
+  color: #000000;
+  margin-right: 20px;
+  background-color: #ffffff;
+  background-position: center;
+  border: none;
+  background-repeat: no-repeat;
+  background-image: url("../images/Like.png");
+}
+
+.element__button:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
+
+.element__delete-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: block;
+  background-image: url("../images/Trash.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.element__delete-button:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
+.element__button_active {
+  background-image: url("../images/Union.png");
+}
+
+@media screen and (max-width: 768px) {
+  .cards-container {
+    display: grid;
+    margin-top: 30px;
+    color: #000000;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 590px;
+  }
+
+  .element__image {
+    width: 282px;
+    height: 282px;
+  }
+
+  .element__text {
+    padding-left: 20px;
+    margin: 0px;
+    width: auto;
+  }
+
+  .element__button {
+    margin: 0;
+    padding-right: 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 20px;
+    width: 100%;
+    padding: 40px 0 0 0;
+    margin: 0;
+  }
+
+  .element {
+    width: 100%;
+    height: 361px;
+  }
+
+  .element__image {
+    width: 100%;
+    height: 280px;
+  }
+
+  .element__text {
+    padding-left: 15px;
+    font-size: 18px;
+  }
+}

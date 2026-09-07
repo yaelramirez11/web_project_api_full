@@ -3,11 +3,16 @@ logs
 *.log
 npm-debug.log*
 
+# Logs del proyecto (IMPORTANTE)
+request.log
+error.log
+
 # Directorio de dependencias
 node_modules
 
 # Directorio de cache npm opcional
 .npm
+.env
 
 # Archivos de sistema y carpetas de ajustes IDE
 .DS_Store

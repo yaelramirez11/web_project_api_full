@@ -1,0 +1,253 @@
+.popup {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.popup__content {
+  position: relative;
+  color: #000000;
+  border-radius: 10px;
+  width: 430px;
+  min-height: 330px;
+  background-color: #ffffff;
+  padding-left: 36px;
+  text-align: start;
+}
+.popup__content:has(.popup__content-show-image) {
+  background: transparent;
+  min-height: auto;
+  width: auto;
+  padding: 0;
+}
+
+.popup__content_deleteConfirmation {
+  height: 181px;
+  width: 430px;
+  padding-left: 60px;
+}
+
+.popup__caption {
+  margin-top: 25px;
+  margin-bottom: 0px;
+  color: black;
+  font-size: 24px;
+  text-align: start;
+  font-family: "Inter-black";
+}
+.form__submit.form__submit-delete {
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.form {
+  display: flex;
+  background-color: #ffffff;
+  color: black;
+  margin-top: 40px;
+  height: auto;
+  width: 358px;
+  flex-direction: column;
+}
+
+.form_type_confirm {
+  height: 181px;
+  margin-top: 0px;
+}
+.form__title-avatar {
+  font-weight: 900;
+  font-size: 24px;
+  font-family: "Inter-black";
+}
+
+.form__title {
+  font-family: "Inter-black";
+  margin: 0;
+  width: 330px;
+  margin-bottom: 20px;
+}
+
+.form__input {
+  margin-top: 30px;
+  padding: 0;
+  height: 27px;
+  width: 358px;
+  border: none;
+  border-bottom: 2px solid #c4c4c4;
+}
+
+.form__input:invalid {
+  border-bottom: 2px solid red;
+}
+
+.form__input-error {
+  font-size: 12px;
+  color: red;
+}
+
+.form__submit {
+  margin-top: 48px;
+  padding: 0;
+  height: 50px;
+  width: 358px;
+  background-color: #000000;
+  border: 2px solid #c4c4c4;
+  color: #c4c4c4;
+}
+.form__submit.form__submit_inactive,
+.form__submit:disabled {
+  background-color: #ccc; /* gris claro */
+  cursor: not-allowed; /* cursor prohibido */
+  opacity: 0.6; /* un poco transparente */
+}
+
+.form__submit:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
+
+.popup__close {
+  position: absolute;
+  top: -50px;
+  right: -40px;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 70px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  background-image: url(../images/CloseIcon.png);
+  background-color: rgba(0, 0, 0, 0);
+  background-size: cover;
+}
+
+.popup__close:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
+
+.popup__content-show-image {
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent; /* opcional, para que no haya fondo blanco */
+  padding: 0;
+}
+
+.popup__image {
+  width: auto;
+  height: auto;
+  max-width: 75vw;
+  max-height: 75vh;
+  display: block;
+  object-fit: contain;
+}
+
+.popup__image-caption {
+  margin-top: 10px;
+  color: white;
+  font-size: 16px;
+  text-align: start;
+}
+
+.popup__close-button-image {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 70px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  background-image: url(../images/CloseIcon.png);
+  background-color: rgba(0, 0, 0, 0);
+  background-size: cover;
+}
+.popup__close-button-image:hover {
+  opacity: 60%;
+}
+
+.popup_is-opened {
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .popup {
+    justify-content: center;
+    width: 768px;
+    align-content: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .popup {
+    width: 320px;
+  }
+
+  .popup__content {
+    width: 220px;
+    padding: 0 10px;
+    min-height: 300px;
+    height: auto;
+  }
+
+  .form {
+    padding: 0;
+    margin-top: 20px;
+    width: 220px;
+  }
+
+  .form__title {
+    width: 220px;
+  }
+
+  .form__input {
+    width: 220px;
+  }
+
+  .form__submit {
+    width: 220px;
+  }
+
+  .popup__close {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    color: white;
+    border: none;
+    width: 20px;
+    height: 20px;
+    font-size: 70px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    background-image: url(../images/CloseIcon.png);
+    background-color: rgba(0, 0, 0, 0);
+    background-size: cover;
+  }
+
+  .popup__close-button-image {
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    color: white;
+    width: 10px;
+    height: 10px;
+  }
+}

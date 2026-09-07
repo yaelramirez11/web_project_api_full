@@ -10,16 +10,25 @@ const {
   getCurrentUser,
 } = require("../controllers/users");
 
+const {
+  validateUserId,
+  validateUserUpdate,
+  validateAvatar,
+} = require("../middlewares/validators");
+
 // GET /users
 router.get("/", auth, getUsers);
 
+// GET /users/me
 router.get("/me", auth, getCurrentUser);
 
 // GET /users/:userId
-router.get("/:userId", auth, getUserById);
+router.get("/:userId", auth, validateUserId, getUserById);
 
-// NUEVAS rutas para actualizar perfil y avatar
-router.patch("/me", auth, updateProfile); // Actualizar perfil
-router.patch("/me/avatar", auth, updateAvatar); // Actualizar avatar
+// PATCH avatar
+router.patch("/me/avatar", auth, validateAvatar, updateAvatar);
+
+//PATCH /users/me
+router.patch("/me", auth, validateUserUpdate, updateProfile);
 
 module.exports = router;

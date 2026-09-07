@@ -1,0 +1,17 @@
+.infotooltip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 55px;
+}
+
+.infotooltip__icon {
+  width: 120px;
+}
+
+.infotooltip__text {
+  font-size: 25px;
+  font-weight: 900;
+}
