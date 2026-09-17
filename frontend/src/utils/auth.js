@@ -1,5 +1,5 @@
 // Especifica la BASE_URL para la API.
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://api.aroundx.chickenkiller.com";
 
 // La función registrada acepta los datos necesarios como argumentos,
 // y envía una solicitud POST al endpoint dado.
